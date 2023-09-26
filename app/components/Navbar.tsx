@@ -48,7 +48,7 @@ export function Navbar() {
                     <li>
                         <NavLink
                             to="/"
-                            className="font-poppins text-base font-normal"
+                            className="font-poppins text-base font-normal hover:text-primary-400 hover:border-b-2 hover:border-primary-400 pb-0.5 transition-all duration-200 ease-in-out"
                         >
                             Home
                         </NavLink>
@@ -56,7 +56,7 @@ export function Navbar() {
                     <li>
                         <NavLink
                             to="/shop"
-                            className="font-poppins text-base font-normal"
+                            className="font-poppins text-base font-normal hover:text-primary-400 hover:border-b-2 hover:border-primary-400 pb-0.5 transition-all duration-200 ease-in-out"
                         >
                             Shop
                         </NavLink>
@@ -64,7 +64,7 @@ export function Navbar() {
                     <li>
                         <NavLink
                             to="/blog"
-                            className="font-poppins text-base font-normal"
+                            className="font-poppins text-base font-normal hover:text-primary-400 hover:border-b-2 hover:border-primary-400 pb-0.5 transition-all duration-200 ease-in-out"
                         >
                             Blog
                         </NavLink>
@@ -72,7 +72,7 @@ export function Navbar() {
                     <li>
                         <NavLink
                             to="/about"
-                            className="font-poppins text-base font-normal"
+                            className="font-poppins text-base font-normal hover:text-primary-400 hover:border-b-2 hover:border-primary-400 pb-0.5 transition-all duration-200 ease-in-out"
                         >
                             About
                         </NavLink>
@@ -80,7 +80,7 @@ export function Navbar() {
                     <li>
                         <NavLink
                             to="/contact"
-                            className="font-poppins text-base font-normal"
+                            className="font-poppins text-base font-normal hover:text-primary-400 hover:border-b-2 hover:border-primary-400 pb-0.5 transition-all duration-200 ease-in-out"
                         >
                             Contact
                         </NavLink>
@@ -104,7 +104,7 @@ export function Navbar() {
                             <li>
                                 <NavLink
                                     to="/"
-                                    className="font-poppins text-base font-normal"
+                                    className="font-poppins text-base text-subheading-black font-medium hover:text-primary-400 hover:border-b-2 hover:border-primary-400 pb-0.5 transition-all duration-200 ease-in-out"
                                     onClick={toggleMenu}
                                 >
                                     Home
@@ -113,7 +113,7 @@ export function Navbar() {
                             <li>
                                 <NavLink
                                     to="/shop"
-                                    className="font-poppins text-base font-normal"
+                                    className="font-poppins text-base text-subheading-black font-medium hover:text-primary-400 hover:border-b-2 hover:border-primary-400 pb-0.5 transition-all duration-200 ease-in-out"
                                     onClick={toggleMenu}
                                 >
                                     Shop
@@ -122,7 +122,7 @@ export function Navbar() {
                             <li>
                                 <NavLink
                                     to="/blog"
-                                    className="font-poppins text-base font-normal"
+                                    className="font-poppins text-base text-subheading-black font-medium hover:text-primary-400 hover:border-b-2 hover:border-primary-400 pb-0.5 transition-all duration-200 ease-in-out"
                                     onClick={toggleMenu}
                                 >
                                     Blog
@@ -131,7 +131,7 @@ export function Navbar() {
                             <li>
                                 <NavLink
                                     to="/about"
-                                    className="font-poppins text-base font-normal"
+                                    className="font-poppins text-base text-subheading-black font-medium hover:text-primary-400 hover:border-b-2 hover:border-primary-400 pb-0.5 transition-all duration-200 ease-in-out"
                                     onClick={toggleMenu}
                                 >
                                     About
@@ -140,7 +140,7 @@ export function Navbar() {
                             <li>
                                 <NavLink
                                     to="/contact"
-                                    className="font-poppins text-base font-normal"
+                                    className="font-poppins text-base text-subheading-black font-medium hover:text-primary-400 hover:border-b-2 hover:border-primary-400 pb-0.5 transition-all duration-200 ease-in-out"
                                     onClick={toggleMenu}
                                 >
                                     Contact
