@@ -8,7 +8,10 @@ export function Navbar() {
     };
     const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-heading-black transition ease transform duration-300`;
     return (
-        <nav className="px-10 py-10 md:px-14 md:py-14 bg-bg-primary">
+        <nav
+            className="px-8 py-8 md:px-12 md:py-12 bg-bg-secondary"
+            id="navbar"
+        >
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto font-normal">
                 <Link to="/">
                     <h1 className="font-oswald text-4xl md:text-5xl text-heading-black">
