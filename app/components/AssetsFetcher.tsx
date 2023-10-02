@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getEnvironmentVariable } from "~/server/utilities.server";
-export default function ResponsiveImage({
+function ResponsiveImage({
     publicId,
     transformations,
     imageClass,
@@ -44,3 +44,50 @@ export default function ResponsiveImage({
         />
     );
 }
+
+function OptimizedVideo({
+    publicId,
+    transformations,
+    videoClass,
+}: {
+    publicId: string;
+    transformations?: string;
+    videoClass?: string;
+}) {
+    const [videoUrl, setVideoUrl] = useState("");
+    useEffect(() => {
+        const cloudName = "dvksolfwi";
+        const deliveryUrl = `https://res.cloudinary.com/${cloudName}/video/upload/${
+            transformations == undefined || transformations.length === 0
+                ? "/"
+                : `/${transformations}`
+        }/v1/Urbanizee/${publicId}`;
+        setVideoUrl(deliveryUrl);
+    }, [publicId, transformations]);
+
+    //TODO: Fix Height issue of image
+    return (
+        <div
+            className={videoClass}
+            style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}
+            id="iframe-container"
+        >
+            <iframe
+                className=""
+                src={videoUrl}
+                height="100%"
+                title="Video Player"
+                allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                }}
+            ></iframe>
+        </div>
+    );
+}
+
+export { ResponsiveImage, OptimizedVideo };

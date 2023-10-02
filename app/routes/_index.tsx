@@ -2,8 +2,11 @@ import type { MetaFunction } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 import VerticalSpacer from "~/components/VerticalSpacer";
 import { useEffect, useState } from "react";
-import ResponsiveImage from "~/components/ResponsiveImage";
+import { ResponsiveImage, OptimizedVideo } from "~/components/AssetsFetcher";
 import { imageNametoUrl } from "~/utilities/imageNametoUrlMapped.js";
+import { ClothingCollection, Currency } from "~/utilities/enum";
+import type { Item } from "~/utilities/typeDefinitions";
+import ItemCard from "~/components/ItemCard";
 export const meta: MetaFunction = () => {
     return [
         { title: "Urbanizee" },
@@ -26,6 +29,13 @@ export default function Index() {
             <VerticalSpacer />
             <VerticalSpacer />
             <OurStoryComponent />
+            <VerticalSpacer />
+            <VerticalSpacer />
+            <VerticalSpacer />
+            <LatestTrendsComponent />
+            <VerticalSpacer />
+            <VerticalSpacer />
+            <VerticalSpacer />
         </div>
     );
 }
@@ -50,11 +60,6 @@ function BannerComponent() {
                         className="z-10"
                         style={{ maxHeight: availableHeight }}
                     >
-                        {/* <img
-                            src={bannerImg}
-                            alt="Banner Girl"
-                            className="w-full h-auto max-h-full"
-                        /> */}
                         <ResponsiveImage
                             publicId={imageNametoUrl["banner_girl"].id}
                             imageClass="w-full h-auto max-h-full"
@@ -147,8 +152,81 @@ function BrandEndorsementsComponent() {
 
 function OurStoryComponent() {
     return (
-        <div className="container px-4">
-            <p>Our Story</p>
+        <div className="container text-center min-w-full">
+            <h1 className="font-old_standard text-subheading-black text-3xl md:text-4xl">
+                Our Story
+            </h1>
+            <p className="font-poppins text-text-black text-sm mt-2">
+                Take a look at our short journey clip.
+            </p>
+            <VerticalSpacer />
+            <VerticalSpacer />
+            <OptimizedVideo
+                publicId={imageNametoUrl["story_video"].id}
+                videoClass=""
+            />
+        </div>
+    );
+}
+
+function LatestTrendsComponent() {
+    const items: Item[] = [
+        {
+            id: "123",
+            imageId: imageNametoUrl["item1"].id,
+            collectionType: ClothingCollection.OUTWEAR,
+            name: "Creamy Long Coat",
+            currency: Currency.USD,
+            price: 183.0,
+        },
+        {
+            id: "123",
+            imageId: imageNametoUrl["item2"].id,
+            collectionType: ClothingCollection.SUMMER,
+            name: "Floral half shirt",
+            currency: Currency.USD,
+            price: 93,
+        },
+        {
+            id: "123",
+            imageId: imageNametoUrl["item3"].id,
+            collectionType: ClothingCollection.OUTWEAR,
+            name: "Creamy Long Coat",
+            currency: Currency.USD,
+            price: 183.0,
+        },
+        {
+            id: "123",
+            imageId: imageNametoUrl["item4"].id,
+            collectionType: ClothingCollection.SUMMER,
+            name: "Floral half shirt",
+            currency: Currency.USD,
+            price: 93,
+        },
+    ];
+    return (
+        <div className="container text-center min-w-full px-8 md:px-12">
+            <h1 className="font-old_standard text-subheading-black text-4xl md:text-5xl text font-medium">
+                Latest Trends
+            </h1>
+            <p className="font-poppins text-text-black text-base mt-2">
+                Always start with perfection
+            </p>
+            <VerticalSpacer />
+            <VerticalSpacer />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-min-full gap-8">
+                {items.map((item) => {
+                    return <ItemCard item={item} key={item.id} />;
+                })}
+            </div>
+            <VerticalSpacer />
+            <VerticalSpacer />
+            <Link
+                to="/"
+                className="uppercase font-poppins font-medium text-sm bg-transparent border-2 border-border-btn-primary border-opacity-60 rounded-full px-8 py-4 text-subheading-black hover:border-text-black hover:border-opacity-40"
+            >
+                View All
+            </Link>
         </div>
     );
 }

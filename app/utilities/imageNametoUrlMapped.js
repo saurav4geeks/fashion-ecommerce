@@ -15,4 +15,19 @@ export const imageNametoUrl = {
         { name: "urban", id: "t6ufqso0jkopg9v8syka" },
         { name: "hipster", id: "cboknvxztukpy52cbnfo" },
     ],
+    story_video: {
+        id: "swbnukfin96v8d6ijavn",
+    },
+    item1: {
+        id: "item-1_vnezs7",
+    },
+    item2: {
+        id: "item-3_wcxasq",
+    },
+    item3: {
+        id: "item-2_cb6z6u",
+    },
+    item4: {
+        id: "item-4_xe3mr0",
+    },
 };
