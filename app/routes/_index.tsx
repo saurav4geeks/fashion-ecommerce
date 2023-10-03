@@ -23,17 +23,22 @@ export default function Index() {
             <BannerComponent />
             <VerticalSpacer />
             <VerticalSpacer />
-            <VerticalSpacer />
             <BrandEndorsementsComponent />
             <VerticalSpacer />
-            <VerticalSpacer />
+            <div className="border-t border-gray-300 my-8"></div>
             <VerticalSpacer />
             <OurStoryComponent />
             <VerticalSpacer />
             <VerticalSpacer />
-            <VerticalSpacer />
             <LatestTrendsComponent />
             <VerticalSpacer />
+            <VerticalSpacer />
+            <div className="border-t border-gray-300 my-8"></div>
+            <VerticalSpacer />
+            <BestSellingComponent />
+            <VerticalSpacer />
+            <VerticalSpacer />
+            <QuoteComponent />
             <VerticalSpacer />
             <VerticalSpacer />
         </div>
@@ -160,7 +165,6 @@ function OurStoryComponent() {
                 Take a look at our short journey clip.
             </p>
             <VerticalSpacer />
-            <VerticalSpacer />
             <OptimizedVideo
                 publicId={imageNametoUrl["story_video"].id}
                 videoClass=""
@@ -213,13 +217,11 @@ function LatestTrendsComponent() {
                 Always start with perfection
             </p>
             <VerticalSpacer />
-            <VerticalSpacer />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-min-full gap-8">
                 {items.map((item) => {
                     return <ItemCard item={item} key={item.id} />;
                 })}
             </div>
-            <VerticalSpacer />
             <VerticalSpacer />
             <Link
                 to="/"
@@ -227,6 +229,85 @@ function LatestTrendsComponent() {
             >
                 View All
             </Link>
+        </div>
+    );
+}
+
+function BestSellingComponent() {
+    const items: Item[] = [
+        {
+            id: "123",
+            imageId: imageNametoUrl["item3"].id,
+            collectionType: ClothingCollection.OUTWEAR,
+            name: "Creamy Long Coat",
+            currency: Currency.USD,
+            price: 183.0,
+        },
+
+        {
+            id: "123",
+            imageId: imageNametoUrl["item2"].id,
+            collectionType: ClothingCollection.SUMMER,
+            name: "Floral half shirt",
+            currency: Currency.USD,
+            price: 93,
+        },
+
+        {
+            id: "123",
+            imageId: imageNametoUrl["item4"].id,
+            collectionType: ClothingCollection.SUMMER,
+            name: "Floral half shirt",
+            currency: Currency.USD,
+            price: 93,
+        },
+        {
+            id: "123",
+            imageId: imageNametoUrl["item1"].id,
+            collectionType: ClothingCollection.OUTWEAR,
+            name: "Creamy Long Coat",
+            currency: Currency.USD,
+            price: 183.0,
+        },
+    ];
+    return (
+        <div className="container text-center min-w-full px-8 md:px-12">
+            <h1 className="font-old_standard text-subheading-black text-4xl md:text-5xl text font-medium">
+                Best selling items
+            </h1>
+            <p className="font-poppins text-text-black text-base mt-2">
+                Great way to get fashioned in a quick time.
+            </p>
+            <VerticalSpacer />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-min-full gap-8">
+                {items.map((item) => {
+                    return <ItemCard item={item} key={item.id} />;
+                })}
+            </div>
+            <VerticalSpacer />
+            <Link
+                to="/"
+                className="uppercase font-poppins font-medium text-sm bg-transparent border-2 border-border-btn-primary border-opacity-60 rounded-full px-8 py-4 text-subheading-black hover:border-text-black hover:border-opacity-40"
+            >
+                View All
+            </Link>
+        </div>
+    );
+}
+
+function QuoteComponent() {
+    return (
+        <div className="container px-4 text-center min-w-full">
+            <h1
+                className="font-poppins text-4xl md:text-4xl text-subheading-black font-semibold max-w-3xl m-auto"
+                style={{ lineHeight: "inherit" }}
+            >
+                Style Is A Way To Say{" "}
+                <span className="border-b-4 border-primary-200">
+                    Who You Are
+                </span>{" "}
+                Without Having To Speak.
+            </h1>
         </div>
     );
 }
