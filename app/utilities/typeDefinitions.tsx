@@ -8,3 +8,9 @@ export interface Item {
     currency: Currency;
     price: number;
 }
+export interface CarousalItem {
+    id: string;
+    imageId: string;
+    name: string;
+    quote: string;
+}

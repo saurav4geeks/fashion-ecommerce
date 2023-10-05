@@ -30,4 +30,7 @@ export const imageNametoUrl = {
     item4: {
         id: "item-4_xe3mr0",
     },
+    home_carousal: {
+        id: "xodau5s2cx0dgzagb2b6",
+    },
 };

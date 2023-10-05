@@ -5,8 +5,9 @@ import { useEffect, useState } from "react";
 import { ResponsiveImage, OptimizedVideo } from "~/components/AssetsFetcher";
 import { imageNametoUrl } from "~/utilities/imageNametoUrlMapped.js";
 import { ClothingCollection, Currency } from "~/utilities/enum";
-import type { Item } from "~/utilities/typeDefinitions";
+import type { CarousalItem, Item } from "~/utilities/typeDefinitions";
 import ItemCard from "~/components/ItemCard";
+import Carousel from "~/components/Carousel";
 export const meta: MetaFunction = () => {
     return [
         { title: "Urbanizee" },
@@ -41,6 +42,10 @@ export default function Index() {
             <QuoteComponent />
             <VerticalSpacer />
             <VerticalSpacer />
+            <PreviewCarouselComponent />
+            <VerticalSpacer />
+            <VerticalSpacer />
+            <TopRatedComponent />
         </div>
     );
 }
@@ -176,7 +181,7 @@ function OurStoryComponent() {
 function LatestTrendsComponent() {
     const items: Item[] = [
         {
-            id: "123",
+            id: "124",
             imageId: imageNametoUrl["item1"].id,
             collectionType: ClothingCollection.OUTWEAR,
             name: "Creamy Long Coat",
@@ -184,7 +189,7 @@ function LatestTrendsComponent() {
             price: 183.0,
         },
         {
-            id: "123",
+            id: "125",
             imageId: imageNametoUrl["item2"].id,
             collectionType: ClothingCollection.SUMMER,
             name: "Floral half shirt",
@@ -192,7 +197,7 @@ function LatestTrendsComponent() {
             price: 93,
         },
         {
-            id: "123",
+            id: "126",
             imageId: imageNametoUrl["item3"].id,
             collectionType: ClothingCollection.OUTWEAR,
             name: "Creamy Long Coat",
@@ -200,7 +205,7 @@ function LatestTrendsComponent() {
             price: 183.0,
         },
         {
-            id: "123",
+            id: "127",
             imageId: imageNametoUrl["item4"].id,
             collectionType: ClothingCollection.SUMMER,
             name: "Floral half shirt",
@@ -245,7 +250,7 @@ function BestSellingComponent() {
         },
 
         {
-            id: "123",
+            id: "124",
             imageId: imageNametoUrl["item2"].id,
             collectionType: ClothingCollection.SUMMER,
             name: "Floral half shirt",
@@ -254,7 +259,7 @@ function BestSellingComponent() {
         },
 
         {
-            id: "123",
+            id: "125",
             imageId: imageNametoUrl["item4"].id,
             collectionType: ClothingCollection.SUMMER,
             name: "Floral half shirt",
@@ -262,7 +267,7 @@ function BestSellingComponent() {
             price: 93,
         },
         {
-            id: "123",
+            id: "126",
             imageId: imageNametoUrl["item1"].id,
             collectionType: ClothingCollection.OUTWEAR,
             name: "Creamy Long Coat",
@@ -308,6 +313,90 @@ function QuoteComponent() {
                 </span>{" "}
                 Without Having To Speak.
             </h1>
+        </div>
+    );
+}
+
+function PreviewCarouselComponent() {
+    const items: CarousalItem[] = [
+        {
+            id: "123",
+            imageId: imageNametoUrl["home_carousal"].id,
+            name: "Women’s baggy pinky outer wear",
+            quote: "Trust your spirit",
+        },
+        {
+            id: "124",
+            imageId: imageNametoUrl["home_carousal"].id,
+            name: "Women’s baggy pinky outer wear",
+            quote: "Trust your spirit",
+        },
+    ];
+    return (
+        <div>
+            <Carousel items={items} />
+        </div>
+    );
+}
+
+function TopRatedComponent() {
+    const items: Item[] = [
+        {
+            id: "123",
+            imageId: imageNametoUrl["item3"].id,
+            collectionType: ClothingCollection.OUTWEAR,
+            name: "Creamy Long Coat",
+            currency: Currency.USD,
+            price: 183.0,
+        },
+
+        {
+            id: "124",
+            imageId: imageNametoUrl["item2"].id,
+            collectionType: ClothingCollection.SUMMER,
+            name: "Floral half shirt",
+            currency: Currency.USD,
+            price: 93,
+        },
+
+        {
+            id: "125",
+            imageId: imageNametoUrl["item4"].id,
+            collectionType: ClothingCollection.SUMMER,
+            name: "Floral half shirt",
+            currency: Currency.USD,
+            price: 93,
+        },
+        {
+            id: "126",
+            imageId: imageNametoUrl["item1"].id,
+            collectionType: ClothingCollection.OUTWEAR,
+            name: "Creamy Long Coat",
+            currency: Currency.USD,
+            price: 183.0,
+        },
+    ];
+    return (
+        <div className="container text-center min-w-full px-8 md:px-12">
+            <h1 className="font-old_standard text-subheading-black text-4xl md:text-5xl text font-medium">
+                Top Rated Products
+            </h1>
+            <p className="font-poppins text-text-black text-base mt-2">
+                Always start with perfection and be stylish.
+            </p>
+            <VerticalSpacer />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-min-full gap-8">
+                {items.map((item) => {
+                    return <ItemCard item={item} key={item.id} />;
+                })}
+            </div>
+            <VerticalSpacer />
+            <Link
+                to="/"
+                className="uppercase font-poppins font-medium text-sm bg-transparent border-2 border-border-btn-primary border-opacity-60 rounded-full px-8 py-4 text-subheading-black hover:border-text-black hover:border-opacity-40"
+            >
+                View All
+            </Link>
         </div>
     );
 }
